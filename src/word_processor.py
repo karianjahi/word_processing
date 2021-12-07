@@ -9,20 +9,25 @@ to get the coverage of tests.
 Open the index.html in the browser.
 """
 
-
-def count_words(text):
-    if not isinstance(text, str):
+# pylint: disable=C0301
+def count_words(my_string):
+    """
+    This function counts words
+    :param my_string: str - A string of words or characters
+    :return: int - length of words
+    """
+    if not isinstance(my_string, str):
         raise TypeError("only accepts strings")
 
     special_characters = ['-', '+', '\n']
 
     for character in special_characters:
-        text = text.replace(character, " ")
+        my_string = my_string.replace(character, " ")
 
-    words = text.split()
+    words = my_string.split()
     return len(words)
 
 
 if __name__ == "__main__":
-    text = "everlyn\nTosin"
-    print(count_words(text))
+    SOME_WORDS = "everlyn\nTosin"
+    print(count_words(SOME_WORDS))
